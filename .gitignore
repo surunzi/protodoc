@@ -1,0 +1,9 @@
+/dev/jsdocTest/out/
+/lib/*.js
+/lib/*.js.map
+/node_modules/
+/.idea/
+cli.js
+cli.js.map
+index.js
+index.js.map
