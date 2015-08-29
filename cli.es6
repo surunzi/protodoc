@@ -68,14 +68,15 @@ cli.main = () =>
     }
     scanner.scan(env.conf.source).then((filePaths) =>
     {
-        env.sourceFiles = filePaths;
+        env.srcFiles = filePaths;
         cli.parseFiles();
     });
 };
 
 cli.parseFiles = () =>
 {
-    var ret = parser.parse(env.sourceFiles);
+    var nodes = parser.parse(env.srcFiles);
+    console.dir(nodes);
 };
 
 export default cli

@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "A tool to generate html docs of protocol explanation.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/surunzi/protodoc.git"

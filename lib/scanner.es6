@@ -17,7 +17,11 @@ class Scanner
             filePaths = [],
             deffered  = Q.defer();
 
-        var walker = walk.walk(filePath);
+        var options = {
+            filters: env.conf.filters
+        };
+
+        var walker = walk.walk(filePath, options);
 
         walker.on('file', (root, fileStats, next) =>
         {

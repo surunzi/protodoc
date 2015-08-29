@@ -1,5 +1,6 @@
 module.exports = {
     source     : './code',
-    sourceTest : /\.js$/,
+    filters    : [],
+    encoding   : 'utf8',
     destination: './out'
 };
