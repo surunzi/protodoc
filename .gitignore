@@ -1,9 +1,14 @@
 /dev/jsdocTest/out/
+/test/out/
+/dev/design.png
 /lib/*.js
 /lib/*.js.map
 /node_modules/
+/bower_components/
 /.idea/
+/templates/default/static/js/jquery.min.js
+/templates/default/publish.js
+/templates/default/publish.js.map
+/templates/default/static/css/style.css
 cli.js
 cli.js.map
-index.js
-index.js.map

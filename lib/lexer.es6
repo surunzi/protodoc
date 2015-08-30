@@ -1,4 +1,4 @@
-import _ from './util'
+import util from './util'
 
 var exports = {};
 
@@ -69,6 +69,12 @@ class Lexer
             {
                 this.forward(4);
                 return Lexer.createToken('NAME');
+            }
+
+            if (this.equal('method', [' ', ':']))
+            {
+                this.forward(4);
+                return Lexer.createToken('METHOD');
             }
 
             if (this.equal('desc', [' ', ':']))
@@ -173,7 +179,7 @@ class Lexer
 
     lastToken(target)
     {
-        var token = _.last(this.tokens);
+        var token = util.last(this.tokens);
 
         return token && token[0] === target;
     }
@@ -201,7 +207,7 @@ class Lexer
 
     static followFilter(c, followChars)
     {
-        if (_.isString(followChars)) followChars = [followChars];
+        if (util.isString(followChars)) followChars = [followChars];
 
         for (var i = 0, len = followChars.length; i < len; i++)
         {

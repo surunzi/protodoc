@@ -1,8 +1,9 @@
-import args    from './lib/args'
+import args    from 'args'
 import path    from 'path'
 import fs      from 'fs'
-import scanner from './lib/scanner'
-import parser  from './lib/parser'
+import scanner from 'scanner'
+import parser  from 'parser'
+import util    from './lib/util'
 
 var cli = {};
 
@@ -55,6 +56,7 @@ cli.loadConf = () =>
     }
 
     env.conf = require(confPath);
+    env.conf.destination = path.join(env.cwd, env.conf.destination || './docs');
 
     return true;
 };
@@ -68,15 +70,34 @@ cli.main = () =>
     }
     scanner.scan(env.conf.source).then((filePaths) =>
     {
-        env.srcFiles = filePaths;
-        cli.parseFiles();
+        env.ast = parser.parse(filePaths);
+        cli.generateDocs();
     });
 };
 
-cli.parseFiles = () =>
+cli.generateDocs = () =>
 {
-    var nodes = parser.parse(env.srcFiles);
-    console.dir(nodes);
+    var templatePath = env.conf.template ?
+                       env.conf.template :
+                       'templates/default';
+
+    var template;
+
+    templatePath = util.getResPath(templatePath);
+
+    try
+    {
+        template = require(templatePath + '/publish');
+    } catch (e)
+    {
+        console.log('Unable to load template.');
+    }
+
+    if (util.isFunction(template))
+    {
+        console.log('Generating output files..');
+        template(env.ast);
+    }
 };
 
 export default cli

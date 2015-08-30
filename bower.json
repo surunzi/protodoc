@@ -1,0 +1,26 @@
+{
+  "name": "ProtoDoc",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/surunzi/protodoc",
+  "authors": [
+    "surunzi <surunzi@foxmail.com>"
+  ],
+  "description": "A tool to generate html docs of protocol explanation.",
+  "keywords": [
+    "protocol",
+    "docs",
+    "html"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

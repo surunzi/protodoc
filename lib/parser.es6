@@ -1,7 +1,7 @@
-import _     from 'underscore-plus'
-import fs    from 'fs'
-import lexer from './lexer'
-import util  from './util'
+import fs     from 'fs'
+import lexer  from 'lexer'
+import util   from './util'
+import marked from 'marked'
 
 var exports = {};
 
@@ -39,7 +39,11 @@ class Parser
             {
                 this.name();
                 continue;
-            } else if (this.accept('URL'))
+            } else if (this.accept('METHOD'))
+            {
+                this.method();
+                continue;
+            }else if (this.accept('URL'))
             {
                 this.url();
                 continue;
@@ -67,6 +71,12 @@ class Parser
         this.ast.name = this.expect('VALUE');
     }
 
+    method()
+    {
+        this.expect(':');
+        this.ast.method = this.expect('VALUE');
+    }
+
     url()
     {
         this.expect(':');
@@ -76,7 +86,7 @@ class Parser
     desc()
     {
         this.expect(':');
-        this.ast.desc = this.expect('VALUE');
+        this.ast.desc = marked(this.expect('VALUE'));
     }
 
     params()
@@ -135,10 +145,7 @@ class Parser
 
     expect(tag)
     {
-        if (this.accept(tag))
-        {
-            return this.value;
-        }
+        if (this.accept(tag)) return this.value;
 
         throw new Error('Unexpected token: ' + this.token.join(', '));
     }
@@ -172,11 +179,11 @@ exports.parse = (srcFiles) =>
 {
     var nodes = [];
 
-    _.each(srcFiles, function (fileName)
+    util.each(srcFiles, function (fileName)
     {
         var src = fs.readFileSync(fileName, env.conf.encoding);
 
-        _.each(getProtoBlock(src), function (block)
+        util.each(getProtoBlock(src), function (block)
         {
             var parser = new Parser(block);
 
@@ -184,7 +191,7 @@ exports.parse = (srcFiles) =>
         });
     });
 
-    return nodes;
+    return nodes.sort((a, b) => a.name > b.name);
 };
 
 var regProtoDoc = /^protocol[^\n]*\n/;
@@ -193,7 +200,7 @@ function getProtoBlock(src)
 {
     var comments = util.extractBlockComment(src);
 
-    comments = _.map(comments, (comment) =>
+    comments = util.map(comments, (comment) =>
     {
         comment = comment.replace(/^\/\*+|\*+\/$/mg, '')
                          .replace(/\n\s*\*+\s*/mg, '\n')
@@ -202,9 +209,9 @@ function getProtoBlock(src)
         return util.trimBlank(comment);
     });
 
-    comments = _.filter(comments, (comment) => regProtoDoc.test(comment));
+    comments = util.filter(comments, (comment) => regProtoDoc.test(comment));
 
-    return _.map(comments, (comment) => comment.replace(regProtoDoc, ''));
+    return util.map(comments, (comment) => comment.replace(regProtoDoc, ''));
 }
 
 export default exports

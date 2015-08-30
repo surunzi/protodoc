@@ -1,0 +1,60 @@
+doctype html
+
+html
+
+    head
+        meta(charset='utf-8')
+        title= title
+        link(rel='stylesheet' href='css/style.css')
+
+    body
+        .top-bar
+            h1.title= title
+        ul.card-list
+            each node in data
+                li
+                    .card
+                        .header
+                            .name
+                                span= node.name
+                                if node.method === 'post'
+                                    .method P
+                                else
+                                    .method G
+                            .url= node.url
+                        .content
+                            .desc.marked !{node.desc}
+                            h2.params PARAMS
+                            table.table
+                                thead
+                                    tr
+                                        th Name
+                                        th Type
+                                        th Description
+                                tbody
+                                    each param, key in node.params
+                                        tr
+                                            td= key
+                                            td= param.type
+                                            td= param.value
+                            h2.return RETURN
+                            table.table
+                                thead
+                                    tr
+                                        th Name
+                                        th Type
+                                        th Description
+                                tbody
+                                    each param, key in node.ret
+                                        tr
+                                            td= key
+                                            td= param.type
+                                            td= param.value
+                        form.footer
+                            each param, key in node.params
+                                .input-group
+                                    label= key
+                                    input(type='text')
+
+        script(src='js/jquery.min.js')
+        script(src='js/protodoc.js')

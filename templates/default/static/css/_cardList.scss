@@ -1,0 +1,66 @@
+@import "variables";
+
+.card-list {
+    margin: 50px auto;
+    width: 800px;
+    li {
+        margin: 30px 0;
+        background-color: #fff;
+        border-radius: 4px;
+        overflow: hidden;
+        .header {
+            .name {
+                background-color: $main-color;
+                padding: 20px;
+                color: #fff;
+                .method {
+                    float: right;
+                    background-color: #f4ba4a;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    border-radius: 50%;
+                }
+            }
+            .url {
+                background-color: $second-color;
+                padding: 10px 20px;
+                color: #fff;
+            }
+        }
+        .content {
+            padding: 20px;
+            .params, .return {
+                font-size: 20px;
+            }
+        }
+        .footer {
+            background-color: $footer-color;
+            padding: 20px;
+            .input-group {
+                position: relative;
+                margin: 10px 0;
+            }
+            label {
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                padding: 6px;
+                text-align: center;
+                color: #fff;
+                background-color: $second-color;
+                font-size: 10px;
+                text-transform: uppercase;
+                width: 80px;
+            }
+            input {
+                width: 100%;
+                padding: 10px 10px 10px 90px;
+                outline: none;
+                border-radius: 4px;
+                border: none;
+                box-shadow: inset 0px 1px 0 1px $second-color;
+            }
+        }
+    }
+}
