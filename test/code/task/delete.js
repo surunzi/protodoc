@@ -1,7 +1,6 @@
 /* protocol
  *
  * name: Delete Task
- * desc: Add task to list
  * url : http://www.taskmvc.com/task/add
  *
  * params:

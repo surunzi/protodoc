@@ -187,7 +187,10 @@ exports.parse = (srcFiles) =>
         {
             var parser = new Parser(block);
 
-            nodes.push(parser.parse());
+            var node = parser.parse();
+            if (!node.method) node.method = 'get';
+
+            nodes.push(node);
         });
     });
 

@@ -1,0 +1,18 @@
+@import "variables";
+
+.top-btn {
+    background-color: $main-color;
+    border-radius: 50%;
+    color: #fff;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    width: 60px;
+    line-height: 60px;
+    height: 60px;
+    bottom: 30px;
+    cursor: pointer;
+    &:active {
+        background-color: #3fced1;
+    }
+}

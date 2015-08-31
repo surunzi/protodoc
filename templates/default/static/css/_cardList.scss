@@ -1,8 +1,9 @@
 @import "variables";
 
 .card-list {
-    margin: 50px auto;
-    width: 800px;
+    margin: 40px auto;
+    max-width: 800px;
+    width: 100%;
     li {
         margin: 30px 0;
         background-color: #fff;
@@ -26,6 +27,25 @@
                 background-color: $second-color;
                 padding: 10px 20px;
                 color: #fff;
+                position: relative;
+                .test-btn {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    padding: 8px 20px;
+                    background-color: #c8d2d7;
+                    cursor: pointer;
+                    &:active {
+                        background-color: #e9f0f3;
+                    }
+                }
+                .icon-bar {
+                    background-color: #fff;
+                    height: 2px;
+                    width: 22px;
+                    margin-top: 4px;
+                }
             }
         }
         .content {
@@ -40,6 +60,22 @@
             .input-group {
                 position: relative;
                 margin: 10px 0;
+            }
+            .hint {
+                display: inline-block;
+            }
+            .send-btn {
+                background-color: $main-color;
+                border: none;
+                float: right;
+                margin: 16px 0;
+                padding: 5px;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 4px;
+                &:active {
+                    background-color: #3fced1;
+                }
             }
             label {
                 position: absolute;
