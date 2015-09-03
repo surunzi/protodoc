@@ -1,0 +1,146 @@
+* {
+  font-family: "Consolas", "Courier New", Courier, monospace;
+  box-sizing: border-box; }
+
+body {
+  background-color: #edf1f2;
+  padding: 0;
+  margin: 0; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+.hidden {
+  display: none; }
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0; }
+  .table th {
+    background-color: #3bc0c3;
+    color: #fff; }
+  .table td, .table th {
+    border: 1px solid #3bc0c3;
+    padding: 15px; }
+
+.marked blockquote {
+  background-color: #f6f7f8;
+  padding: 10px 20px;
+  border-left: 2px solid #3bc0c3;
+  margin: 0; }
+
+.marked strong {
+  color: #f05050; }
+
+.marked ol li {
+  list-style-type: decimal;
+  overflow: visible; }
+
+.top-btn {
+  background-color: #3bc0c3;
+  border-radius: 50%;
+  color: #fff;
+  position: fixed;
+  right: 30px;
+  text-align: center;
+  width: 60px;
+  line-height: 60px;
+  height: 60px;
+  bottom: 30px;
+  cursor: pointer; }
+  .top-btn:active {
+    background-color: #3fced1; }
+
+.top-bar {
+  height: 60px;
+  width: 100%;
+  background-color: #3bc0c3; }
+  .top-bar .title {
+    text-align: center;
+    color: #fff;
+    line-height: 60px;
+    margin: 0; }
+
+.card-list {
+  margin: 40px auto;
+  max-width: 800px;
+  width: 100%; }
+  .card-list li {
+    margin: 30px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden; }
+    .card-list li .header .name {
+      background-color: #3bc0c3;
+      padding: 20px;
+      color: #fff; }
+      .card-list li .header .name .method {
+        float: right;
+        background-color: #f4ba4a;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 50%; }
+    .card-list li .header .url {
+      background-color: #b6c2c9;
+      padding: 10px 20px;
+      color: #fff;
+      position: relative; }
+      .card-list li .header .url .test-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        padding: 8px 20px;
+        background-color: #c8d2d7;
+        cursor: pointer; }
+        .card-list li .header .url .test-btn:active {
+          background-color: #e9f0f3; }
+      .card-list li .header .url .icon-bar {
+        background-color: #fff;
+        height: 2px;
+        width: 22px;
+        margin-top: 4px; }
+    .card-list li .content {
+      padding: 20px; }
+      .card-list li .content .params, .card-list li .content .return {
+        font-size: 20px; }
+    .card-list li .footer {
+      background-color: #f6f7f8;
+      padding: 20px; }
+      .card-list li .footer .input-group {
+        position: relative;
+        margin: 10px 0; }
+      .card-list li .footer .hint {
+        display: inline-block; }
+      .card-list li .footer .send-btn {
+        background-color: #3bc0c3;
+        border: none;
+        float: right;
+        margin: 16px 0;
+        padding: 5px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px; }
+        .card-list li .footer .send-btn:active {
+          background-color: #3fced1; }
+      .card-list li .footer label {
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        padding: 6px;
+        text-align: center;
+        color: #fff;
+        background-color: #b6c2c9;
+        font-size: 10px;
+        text-transform: uppercase;
+        width: 80px; }
+      .card-list li .footer input {
+        width: 100%;
+        padding: 10px 10px 10px 90px;
+        outline: none;
+        border-radius: 4px;
+        border: none;
+        box-shadow: inset 0 0 1px 1px #b6c2c9; }

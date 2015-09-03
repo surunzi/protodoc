@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TaskMVC</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="top-bar">
+      <h1 class="title">TaskMVC</h1>
+    </div>
+    <ul class="card-list">
+      <li class="card">
+        <div class="header">
+          <div class="name"><span>Add Task</span>
+            <div class="method">P</div>
+          </div>
+          <div class="url"><span>http://www.taskmvc.com/task/add</span>
+            <div class="test-btn">
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="desc marked"><p>Add task to list. </p>
+<blockquote>
+<p>You don&#39;t have to send the <strong>id</strong> of task. 
+It will be generated automatically by server, 
+same as <strong>createTime</strong> and <strong>complete</strong>.</p>
+</blockquote>
+</div>
+          <h2 class="params">PARAMS</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>Task title</td>
+              </tr>
+              <tr>
+                <td>detail</td>
+                <td>string</td>
+                <td>Task detail</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="return">RETURN</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>number</td>
+                <td>Id of the new task</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form method="post" action="http://www.taskmvc.com/task/add" class="footer hidden">
+          <div class="input-group">
+            <label>title</label>
+            <input type="text" name="title">
+          </div>
+          <div class="input-group">
+            <label>detail</label>
+            <input type="text" name="detail">
+          </div>
+          <p class="hint">Open developer tool to check details</p>
+          <button type="submit" class="send-btn">Send</button>
+        </form>
+      </li>
+      <li class="card">
+        <div class="header">
+          <div class="name"><span>Delete Task</span>
+            <div class="method">G</div>
+          </div>
+          <div class="url"><span>http://www.taskmvc.com/task/add</span>
+          </div>
+        </div>
+        <div class="content">
+          <h2 class="return">RETURN</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>status</td>
+                <td>number</td>
+                <td>Whether is successful, 0 means ok</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li class="card">
+        <div class="header">
+          <div class="name"><span>Delete all Tasks</span>
+            <div class="method">G</div>
+          </div>
+          <div class="url"><span>http://www.taskmvc.com/tasks/delete</span>
+          </div>
+        </div>
+        <div class="content">
+          <h2 class="return">RETURN</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>status</td>
+                <td>string</td>
+                <td>Successful or not</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li class="card">
+        <div class="header">
+          <div class="name"><span>Edit Task</span>
+            <div class="method">G</div>
+          </div>
+          <div class="url"><span>http://www.taskmvc.com/task/edit</span>
+            <div class="test-btn">
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <h2 class="params">PARAMS</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>id</td>
+                <td>number</td>
+                <td>Task id</td>
+              </tr>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>Task title</td>
+              </tr>
+              <tr>
+                <td>detail</td>
+                <td>string</td>
+                <td>Task detail</td>
+              </tr>
+              <tr>
+                <td>complete</td>
+                <td>number</td>
+                <td>1 means done</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="return">RETURN</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>status</td>
+                <td>number</td>
+                <td>save or not</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <form method="get" action="http://www.taskmvc.com/task/edit" class="footer hidden">
+          <div class="input-group">
+            <label>id</label>
+            <input type="text" name="id">
+          </div>
+          <div class="input-group">
+            <label>title</label>
+            <input type="text" name="title">
+          </div>
+          <div class="input-group">
+            <label>detail</label>
+            <input type="text" name="detail">
+          </div>
+          <div class="input-group">
+            <label>complete</label>
+            <input type="text" name="complete">
+          </div>
+          <p class="hint">Open developer tool to check details</p>
+          <button type="submit" class="send-btn">Send</button>
+        </form>
+      </li>
+      <li class="card">
+        <div class="header">
+          <div class="name"><span>Get Tasks</span>
+            <div class="method">G</div>
+          </div>
+          <div class="url"><span>http://www.taskmvc.com/tasks/get</span>
+          </div>
+        </div>
+        <div class="content">
+          <div class="desc marked"><p>Get all Tasks. Each task contains the following content: </p>
+<ol>
+<li>Id </li>
+<li>Title </li>
+<li>Detail </li>
+<li>CreateTime </li>
+<li>Complete</li>
+</ol>
+</div>
+          <h2 class="return">RETURN</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>tasks</td>
+                <td>array</td>
+                <td>List of tasks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+    </ul>
+    <div class="top-btn">Top</div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/protodoc.js"></script>
+  </body>
+</html>
