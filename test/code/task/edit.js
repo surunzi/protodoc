@@ -1,12 +1,14 @@
 /* protocol
  *
  * name: Edit Task
- * desc: Add task to list
- * url : http://www.taskmvc.com/task/add
+ * url : http://www.taskmvc.com/task/edit
  *
  * params:
- * - content: object The content of task.
+ * - id: number Task id
+ * - title: string Task title
+ * - detail: string Task detail
+ * - complete: number 1 means done
  *
  * return:
- * - status: number Whether is successful, 0 means ok.
+ * - status: number save or not
  */

@@ -22,47 +22,51 @@ html
                                 .method G
                         .url
                             span= node.url
-                            .test-btn
-                                .icon-bar
-                                .icon-bar
-                                .icon-bar
+                            if node.params
+                                .test-btn
+                                    .icon-bar
+                                    .icon-bar
+                                    .icon-bar
                     .content
                         if node.desc
                             .desc.marked !{node.desc}
-                        h2.params PARAMS
-                        table.table
-                            thead
-                                tr
-                                    th Name
-                                    th Type
-                                    th Description
-                            tbody
-                                each param, key in node.params
+                        if node.params
+                            h2.params PARAMS
+                            table.table
+                                thead
                                     tr
-                                        td= key
-                                        td= param.type
-                                        td= param.value
-                        h2.return RETURN
-                        table.table
-                            thead
-                                tr
-                                    th Name
-                                    th Type
-                                    th Description
-                            tbody
-                                each param, key in node.ret
+                                        th Name
+                                        th Type
+                                        th Description
+                                tbody
+                                    each param, key in node.params
+                                        tr
+                                            td= key
+                                            td= param.type
+                                            td= param.value
+                        if node.ret
+                            h2.return RETURN
+                            table.table
+                                thead
                                     tr
-                                        td= key
-                                        td= param.type
-                                        td= param.value
-                    form.footer.hidden(method='#{node.method}' action='#{node.url}')
-                        each param, key in node.params
-                            .input-group
-                                label= key
-                                input(type='text' name='#{key}')
-                        p.hint.
-                            Open developer tool to check details
-                        button.send-btn(type='submit') Send
+                                        th Name
+                                        th Type
+                                        th Description
+                                tbody
+                                    each param, key in node.ret
+                                        tr
+                                            td= key
+                                            td= param.type
+                                            td= param.value
+                    if node.params
+                        form.footer.hidden(method='#{node.method}' action='#{node.url}')
+                            each param, key in node.params
+                                .input-group
+                                    label= key
+                                    input(type='text' name='#{key}')
+                            p.hint.
+                                Open developer tool to check details
+                            button.send-btn(type='submit') Send
         .top-btn Top
 
         script(src='js/jquery.min.js')

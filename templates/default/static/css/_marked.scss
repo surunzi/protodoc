@@ -10,4 +10,10 @@
     strong {
         color: #f05050;
     }
+    ol {
+        li {
+            list-style-type: decimal;
+            overflow: visible;
+        }
+    }
 }
