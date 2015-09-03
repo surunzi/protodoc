@@ -1,1 +1,14 @@
 /dev/
+/bower_components/
+/lib/*.es6
+/lib/*.js.map
+/node_modules/
+/templates/default/publish.es6
+/templates/default/publish.js.map
+/templates/default/static/css/*.scss
+/test/
+.gitignore
+bower.json
+cli.es6
+cli.js.map
+Gruntfile.js
